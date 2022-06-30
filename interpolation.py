@@ -1,79 +1,76 @@
 import numpy as np
-import math
 
-def lagrange(x, y, x_find):
+def lagrange(data_x, data_y, x):
     y_ans = 0
 
-    for i in range(0, x.size):
-        p = y[i]
-        for j in range(0, x.size):
+    for i in range(data_x.size):
+        p = data_y[i]
+        for j in range(data_x.size):
             if i != j:
-                p *= ((x_find - x[j]) / (x[i] - x[j]))
+                p *= ((x - data_x[j]) / (data_x[i] - data_x[j]))
         y_ans += p
 
     return y_ans
 
-def newton_divided_difference(x, y, x_find):
-    c = np.copy(y)
+def newton_divided_difference(data_x, data_y, x):
+    c = np.copy(data_y)
 
-    for j in range(1, x.size):
-        for i in range(x.size - 1, j - 1, -1):
-            c[i] = float(c[i] - c[i-1]) / float(x[i] - x[i - j])
+    for j in range(1, data_x.size):
+        for i in range(data_x.size - 1, j - 1, -1):
+            c[i] = float(c[i] - c[i - 1]) / float(data_x[i] - data_x[i - j])
 
     y_ans = 0
-    for i in range(x.size):
+    for i in range(data_x.size):
         f = c[i]
         for j in range(i):
-            f *= (x_find - x[j])
+            f *= (x - data_x[j])
 
         y_ans += f
         
     return y_ans
 
 def input_data():
-    x = np.array([])
-    y = np.array([])
+    data_x = np.array([])
+    data_y = np.array([])
 
-    n = int(input("Enter the number of points you have:  "))
-
-    for i in range(n):
-        x = np.append(x, float(input("X[{}]: ".format(i))))
+    n = int(input("Enter the number of points: "))
 
     for i in range(n):
-        y = np.append(y, float(input("Y[{}]: ".format(i))))
+        data_x = np.append(data_x, float(input("X[{}]: ".format(i))))
 
-    x_find = float(input("Find Y for X = "))
+    for i in range(n):
+        data_y = np.append(data_y, float(input("Y[{}]: ".format(i))))
 
-    return [x, y, x_find]
+    x = float(input("Find Y for X = "))
+
+    return [data_x, data_y, x]
 
 def test_lagrange():
     """ 
     Example:
-        X = [1.0, 1.3, 1.5]
-        Y = [0.841, 0.964, 0.997]
+        data_x = [1.0, 1.3, 1.5]
+        data_y = [0.841, 0.964, 0.997]
         P(1.4) = 0.9854
     """
 
-    x, y, x_find = input_data()
+    data_x, data_y, x = input_data()
 
-    y_ans = lagrange(x, y, x_find)
+    y_ans = lagrange(data_x, data_y, x)
 
-    print("Using Lagrange Method :")
-    print("F({}) = {}".format(x_find, y_ans))
+    print("Using Lagrange Method:")
+    print("F({}) = {}".format(x, y_ans))
 
 def test_newton():
     """ 
     Example:
-        X = [1.0, 1.3, 1.5]
-        Y = [0.841, 0.964, 0.997]
+        data_x = [1.0, 1.3, 1.5]
+        data_y = [0.841, 0.964, 0.997]
         P(1.4) = 0.9854
     """
 
-    x, y, x_find = input_data()
+    data_x, data_y, x = input_data()
 
-    y_ans = newton_divided_difference(x, y, x_find)
+    y_ans = newton_divided_difference(data_x, data_y, x)
 
-    print("Using Newton Divided Difference Method :")
-    print("F({}) = {}".format(x_find, y_ans))
-
-test_lagrange();
+    print("Using Newton Divided Difference Method:")
+    print("F({}) = {}".format(x, y_ans))
