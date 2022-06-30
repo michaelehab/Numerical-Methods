@@ -43,6 +43,16 @@ def forward_difference_second_order(data_x, data_y, x):
     else:
         return (data_y[idx[0][0] + 2] - 2 * data_y[idx[0][0] + 1] + data_y[idx[0][0]])/(dx * dx)
 
+def backward_difference_first_order(data_x, data_y, x):
+    if x == data_x[0]:
+        raise Exception("The derivative of the first point can't be obtained using backward difference")
+
+    idx = np.where(data_x == x)
+    if idx[0].size == 0:
+        raise Exception("The X point isn't in the given data")
+    else:
+        return (data_y[idx[0][0]] - data_y[idx[0][0] - 1])/(data_x[idx[0][0]] - data_x[idx[0][0] - 1])
+
 def test_forward_difference():
     data_x, data_y, x = input_data()
     dy = forward_difference_first_order(data_x, data_y, x)
@@ -50,4 +60,13 @@ def test_forward_difference():
     dy2 = forward_difference_second_order(data_x, data_y, x)
     print("d2Y/dX2 at X = {} : {}".format(x, dy2))
 
-test_forward_difference()
+def test_backward_difference():
+    """
+    Example:
+        X = 1, 2, 4
+        Y = 1.1, 0.7, 0.4
+        dY/dX at X = 2 : -0.4
+    """
+    data_x, data_y, x = input_data()
+    dy = backward_difference_first_order(data_x, data_y, x)
+    print("dY/dX at X = {} : {}".format(x, dy))
