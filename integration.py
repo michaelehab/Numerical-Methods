@@ -29,6 +29,11 @@ def simpson(start, end, n):
 def midpoint(start, end):
     return (end - start) * f1((start + end) / 2)
 
+def two_points_gauss_quadrature(start, end):
+    x = (end - start) / 2
+    y = (end + start) / 2
+    return x * (f1(x * (-1 / math.sqrt(3)) + y) + f1(x * (1 / math.sqrt(3)) + y))
+
 def test_trapezoidal():
     """
     Example:
@@ -46,7 +51,7 @@ def test_trapezoidal():
 def test_simpson():
     """
     Example:
-        F(X) = e^(x) * sin(x)
+        F(X) = 1 / (1 + x)
         Integration from 0 to 0.1 using 1 segment
         = 0.09531
     """
@@ -60,15 +65,27 @@ def test_simpson():
 def test_midpoint():
     """
     Example:
-        F(X) = e^(x) * sin(x)
+        F(X) = 1 / (1 + x)
         Integration from 0 to 0.1 using 1 segment
         = 0.09524
     """
     print("Integrating F(x) using Midpoint rule:")
     start = float(input("Enter the start point: "))
     end = float(input("Enter the end point: "))
-    n = int(input("Enter the number of segments: "))
     ans = midpoint(start, end)
     print("The answer is {}".format(ans))
 
-test_midpoint()
+def test_gauss_quadrature():
+    """
+    Example:
+        F(X) = 1 / (1 + x)
+        Integration from 0 to 0.1 using 1 segment
+        = 0.09531
+    """
+    print("Integrating F(x) using Two Points Gauss Quadrature rule:")
+    start = float(input("Enter the start point: "))
+    end = float(input("Enter the end point: "))
+    ans = two_points_gauss_quadrature(start, end)
+    print("The answer is {}".format(ans))
+
+test_gauss_quadrature()
