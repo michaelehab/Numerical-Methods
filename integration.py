@@ -26,6 +26,9 @@ def simpson(start, end, n):
         i += 1
     return ans * (h / 3)  
 
+def midpoint(start, end):
+    return (end - start) * f1((start + end) / 2)
+
 def test_trapezoidal():
     """
     Example:
@@ -54,4 +57,18 @@ def test_simpson():
     ans = simpson(start, end, n)
     print("The answer is {}".format(ans))
 
-test_simpson()
+def test_midpoint():
+    """
+    Example:
+        F(X) = e^(x) * sin(x)
+        Integration from 0 to 0.1 using 1 segment
+        = 0.09524
+    """
+    print("Integrating F(x) using Midpoint rule:")
+    start = float(input("Enter the start point: "))
+    end = float(input("Enter the end point: "))
+    n = int(input("Enter the number of segments: "))
+    ans = midpoint(start, end)
+    print("The answer is {}".format(ans))
+
+test_midpoint()
