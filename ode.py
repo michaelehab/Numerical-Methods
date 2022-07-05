@@ -16,6 +16,9 @@ def df2(t, y):
 def f3(t, y):
     return (2 / t) * y + t**2 * math.exp(t)
 
+def f4(t, y):
+    return (1 / t**2) - (y / t)
+
 def euler(f, y0, t0, h, start_t, end_t):
     ans = []
     ans.append(y0 + f(t0, y0) * h)
@@ -65,4 +68,9 @@ def test_heun():
     for i in ans:
         print(i)
 
-test_heun()
+def test_midpoint():
+    ans = rk2(f4, -1, 1, 0.1, 1, 1.2, 0, 1, 0.5, 0.5)
+    for i in ans:
+        print(i)
+
+test_midpoint()
