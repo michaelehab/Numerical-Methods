@@ -41,10 +41,26 @@ def rk2(f, y0, t0, h, start_t, end_t, a1, a2, p1, q1):
     k2 = f(t0 + p1 * h, y0 + q1 * h * k1)
     ans.append(y0 + h * (a1 * k1 + a2 * k2))
     while t0 + h < end_t:
+        t0 += h
         k1 = f(t0, ans[-1])
         k2 = f(t0 + p1 * h, ans[-1] + q1 * h * k1)
         ans.append(ans[-1] + h * (a1 * k1 + a2 * k2))
+    return ans
+
+def rk4(f, y0, t0, h, start_t, end_t):
+    ans = []
+    k1 = f(t0, y0)
+    k2 = f(t0 + 0.5 * h, y0 + 0.5 * h * k1)
+    k3 = f(t0 + 0.5 * h, y0 + 0.5 * h * k2)
+    k4 = f(t0 + h, y0 + h * k3)
+    ans.append(y0 + (1 / 6) * h * (k1 + 2 * k2 + 2 * k3 + k4))
+    while t0 + h < end_t:
         t0 += h
+        k1 = f(t0, ans[-1])
+        k2 = f(t0 + 0.5 * h, ans[-1] + 0.5 * h * k1)
+        k3 = f(t0 + 0.5 * h, ans[-1] + 0.5 * h * k2)
+        k4 = f(t0 + h, ans[-1] + h * k3)
+        ans.append(ans[-1] + (1 / 6) * h * (k1 + 2 * k2 + 2 * k3 + k4))
     return ans
 
 def test_euler():
@@ -73,4 +89,9 @@ def test_midpoint():
     for i in ans:
         print(i)
 
-test_midpoint()
+def test_rk4():
+    ans = rk4(f4, -1, 1, 0.2, 1, 1.2)
+    for i in ans:
+        print(i)
+
+test_rk4()
