@@ -13,6 +13,9 @@ def f2(t, y):
 def df2(t, y):
     return math.cos(t) - math.exp(-t)
 
+def f3(t, y):
+    return (2 / t) * y + t**2 * math.exp(t)
+
 def euler(f, y0, t0, h, start_t, end_t):
     ans = []
     ans.append(y0 + f(t0, y0) * h)
@@ -27,6 +30,18 @@ def taylor(f, df, y0, t0, h, start_t, end_t):
     while t0 + h < end_t:
         t0 += h
         ans.append(ans[-1] + f(t0, ans[-1]) * h + 0.5 * df(t0, ans[-1]) * h**2)
+    return ans
+
+def rk2(f, y0, t0, h, start_t, end_t, a1, a2, p1, q1):
+    ans = []
+    k1 = f(t0, y0)
+    k2 = f(t0 + p1 * h, y0 + q1 * h * k1)
+    ans.append(y0 + h * (a1 * k1 + a2 * k2))
+    while t0 + h < end_t:
+        k1 = f(t0, ans[-1])
+        k2 = f(t0 + p1 * h, ans[-1] + q1 * h * k1)
+        ans.append(ans[-1] + h * (a1 * k1 + a2 * k2))
+        t0 += h
     return ans
 
 def test_euler():
@@ -45,4 +60,9 @@ def test_taylor():
     for i in ans:
         print(i)
 
-test_taylor()
+def test_heun():
+    ans = rk2(f3, 0, 1, 0.1, 1, 1.2, 0.5, 0.5, 1, 1)
+    for i in ans:
+        print(i)
+
+test_heun()
