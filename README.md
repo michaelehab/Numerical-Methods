@@ -12,7 +12,7 @@ Numerical analysis is the study of algorithms that use numerical approximation f
 
 # Subjects
 ## <a href="./interpolation.py">Interpolation</a>
-### 1.Lagrange Interpolating Polynomial:
+### 1. Lagrange Interpolating Polynomial:
 #### Example : 
 <table align="center">
   <tr>
@@ -34,7 +34,7 @@ $$l_k(x)= \prod_{i=0,\, i\neq k}^{n} \frac{x-x_i}{x_k-x_i}=\frac{x-x_0}{x_k-x_0}
 
 $$l_2(1.4)=0.9854$$
 
-### 2.Newton Divided Difference:
+### 2. Newton Divided Difference:
 #### Example : 
 <table align="center">
   <tr>
@@ -69,15 +69,15 @@ P_2(x)&=&f[x_0]+f[x_0,x_1]x+f[x_0,x_1,x_2]x(x-2)\\
 \end{array}$$
 
 ## <a href="./differentiation.py">Differentiation</a>
-### 1.Forward Difference
+### 1. Forward Difference
 $$f^ \prime(x) = \frac{f(x + \Delta x) - f(x)}{\Delta x}$$
 
 $$f^{\prime \prime}(x) = \frac{f(x + 2\Delta x) - 2f(x + \Delta x) + f(x)}{(\Delta x)^2}$$
 
-### 2.Backward Difference
+### 2. Backward Difference
 $$f^ \prime(x) = \frac{f(x) - f(x - \Delta x)}{\Delta x}$$
 
-### 3.Centered Difference
+### 3. Centered Difference
 $$f^ \prime(x) = \frac{f(x + \Delta x) - f(x - \Delta x)}{2\Delta x}$$
 
 $$f^{\prime \prime}(x) = \frac{f(x + \Delta x) + f(x - \Delta x) - 2f(x)}{(\Delta x)^2}$$
@@ -88,11 +88,17 @@ Where:
 
 $$h = \frac{b - a}{numberOfSegments}$$
 
-### 2.Simpson $\frac{1}{3}$ Rule
+### 2. Simpson $\frac{1}{3}$ Rule
 $$\int_{a}^b f(x)dx=\frac{h}{3}(f(x)+f(x_n)+2\sum_{i(even)=0}^{n-2}f(x_i)+4\sum_{i(odd)=0}^{n-1}f(x_i))$$
 Where:
 
 $$h = \frac{b - a}{numberOfSegments}$$
+
+### 3. 2-Points Gauss Quadrature
+$$\int_{a}^b f(x)dx=\frac{b - a}{2}(f(\frac{b - a}{2} * \frac{1}{\sqrt{3}} + \frac{b + a}{2}) + f(\frac{b - a}{2} * \frac{-1}{\sqrt{3}} + \frac{b + a}{2}))$$
+
+### 4. MidPoint Rule (One Point Gauss Quadrature)
+$$\int_{a}^b f(x)dx=(b - a)f(\frac{b + a}{2})$$
 
 ## <a href="./regression.py">Regression</a>
 ## <a href="./ode.py">ODE</a>
