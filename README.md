@@ -82,6 +82,18 @@ $$f^ \prime(x) = \frac{f(x + \Delta x) - f(x - \Delta x)}{2\Delta x}$$
 
 $$f^{\prime \prime}(x) = \frac{f(x + \Delta x) + f(x - \Delta x) - 2f(x)}{(\Delta x)^2}$$
 ## <a href="./integration.py">Integration</a>
+### 1.Trapezoidal Rule
+$$\int_{a}^b f(x)dx=\frac{h}{2}(f(a)+f(b)+2\sum_{i=0}^{n-1}f(a + ih))$$
+Where:
+
+$$h = \frac{b - a}{numberOfSegments}$$
+
+### 2.Simpson $\frac{1}{3}$ Rule
+$$\int_{a}^b f(x)dx=\frac{h}{3}(f(x)+f(x_n)+2\sum_{i(even)=0}^{n-2}f(x_i)+4\sum_{i(odd)=0}^{n-1}f(x_i))$$
+Where:
+
+$$h = \frac{b - a}{numberOfSegments}$$
+
 ## <a href="./regression.py">Regression</a>
 ## <a href="./ode.py">ODE</a>
 ## <a href="./eigenvalues.py">Eigenvalues</a>
