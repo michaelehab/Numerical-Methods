@@ -116,5 +116,31 @@ b
 \sum_{1}^{n} x_i y_i
 \end{bmatrix}$$
 ## <a href="./ode.py">ODE</a>
+### 1. Euler Method ($y(t0) = y0$ & $f(x_i, y_i) = \frac{dy}{dx}$)
+$$y_{i+1} = y_i + hf(x_i, y_i)$$
+
+### 2. Taylor Method ($y(t0) = y0$ & $f(x_i, y_i) = \frac{dy}{dx}$)
+$$y_{i+1} = y_i + hf(x_i, y_i) + \frac{h^2}{2}f^\prime(x_i, y_i)$$
+
+### 3. Runge-Kutta 2nd Order ($y(t0) = y0$ & $f(x_i, y_i) = \frac{dy}{dx}$)
+$$k_1 = f(x_i, y_i)$$
+
+$$k_2 = f(x_i + p_1h, y_i + q_1 k_1 h)$$
+
+$$y_{i+1} = y_i + h(a_1 k_1 + a_2 k_2)$$
+#### Heun: $(a_1 = \frac{1}{2}, a_2 = \frac{1}{2}, p_1 = q_1 = 1)$
+#### Midpoint: $(a_1 = 0, a_2 = 1, p_1 = q_1 = \frac{1}{2})$
+#### Ralston: $(a_1 = \frac{1}{3}, a_2 = \frac{2}{3}, p_1 = q_1 = \frac{3}{4})$
+
+### 4. Runge-Kutta 4th Order ($y(t0) = y0$ & $f(x_i, y_i) = \frac{dy}{dx}$)
+$$k_1 = f(x_i, y_i)$$
+
+$$k_2 = f(x_i + \frac{h}{2}, y_i + \frac{k_1 h}{2})$$
+
+$$k_3 = f(x_i + \frac{h}{2}, y_i + \frac{k_2 h}{2})$$
+
+$$k_2 = f(x_i + h, y_i + k_3 h)$$
+
+$$y_{i+1} = y_i + \frac{h}{6}(k_1 + 2k_2 + 2k_3 + k_4)$$
 ## <a href="./eigenvalues.py">Eigenvalues</a>
 ## <a href="./nonlinear.py">Non-Linear Equations</a>
