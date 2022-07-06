@@ -56,7 +56,7 @@ def J(pf1px1, pf2px1, pf1px2, pf2px2, x1, x2):
 
 def newton(pf1px1, pf2px1, pf1px2, pf2px2, f1, f2, x1, x2, steps):
     for i in range(steps):
-        y = np.matmul(np.array([-f1(x1, x2), -f2(x1, x2)]), np.linalg.inv(J(pf1px1, pf2px1, pf1px2, pf2px2, x1, x2)))
+        y = np.matmul(np.linalg.inv(J(pf1px1, pf2px1, pf1px2, pf2px2, x1, x2)), np.array([-f1(x1, x2), -f2(x1, x2)]))
         x1 += y[0]
         x2 += y[1]
         print("Iteration {} : X1 = {}, X2 = {}".format(i + 1, x1, x2))
@@ -75,7 +75,7 @@ def test_gauss_seidel():
     print("X1 = {}, X2 = {}".format(x1, x2))
 
 def test_newton():
-    x1, x2 = newton(pf3px1, pf4px1, pf3px2, pf4px2, f3, f4, 0, 0, 3)
+    x1, x2 = newton(pf3px1, pf4px1, pf3px2, pf4px2, f3, f4, 0, 0, 2)
     print("F1(X1, X2) = {}".format(f3(x1, x2)))
     print("F2(X1, X2) = {}".format(f4(x1, x2)))
 
