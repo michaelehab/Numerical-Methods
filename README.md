@@ -7,10 +7,10 @@
 ![GitHub top language](https://img.shields.io/github/languages/top/michaelehab/Numerical-Methods?style=plastic)
 </div>
 
-# Definition (<a href="https://en.wikipedia.org/wiki/Numerical_analysis">WIKI</a>):
+# Definition 📃(<a href="https://en.wikipedia.org/wiki/Numerical_analysis">WIKI</a>):
 Numerical analysis is the study of algorithms that use numerical approximation for the problems of mathematical analysis. Numerical analysis finds application in all fields of engineering and the physical sciences, and in the 21st century also the life and social sciences, medicine, business and even the arts.
 
-# Subjects
+# Subjects 📘
 ## <a href="./interpolation.py">Interpolation</a>
 ### 1. Lagrange Interpolating Polynomial:
 #### Example : 
@@ -177,3 +177,41 @@ J =
   \frac{\partial F_m}{\partial x_1} & \frac{\partial F_m}{\partial x_2} & \cdots & \frac{\partial F_m}{\partial x_n} \\
 \end{bmatrix}
 $$
+
+Setting the environment 🛠
+--------------------------
+#### 1. Make sure python v3.7 or higher is installed:
+
+```console
+* To get the version Excute:
+$ python --version
+Python 3.9.6
+```
+> if not installed watch the following [video](https://www.youtube.com/watch?v=VWgs_iTojoA)
+
+#### 2. Make Sure Git is installed:
+```console
+* To get the version Excute:
+$ git --version
+git version 2.28.0.windows.1
+```
+> if not installed watch the following [video](https://www.youtube.com/watch?v=2j7fD92g-gE)
+
+#### 3. Execute the following commands in your terminal after changing your directory to the desired path
+
+```console
+$ mkdir Numerical-Methods
+$ python -m venv venv```
+```
+For Windows Users:
+```
+$ venv\Scripts\activate.bat
+```
+For Linux Users:
+```
+$ source venv/bin/activate
+```
+Then
+```
+$ git clone https://github.com/michaelehab/Numerical-Methods && cd Numerical-Methods
+$ pip install -r requirements.txt
