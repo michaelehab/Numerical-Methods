@@ -82,7 +82,7 @@ $$f^ \prime(x) = \frac{f(x + \Delta x) - f(x - \Delta x)}{2\Delta x}$$
 
 $$f^{\prime \prime}(x) = \frac{f(x + \Delta x) + f(x - \Delta x) - 2f(x)}{(\Delta x)^2}$$
 ## <a href="./integration.py">Integration</a>
-### 1.Trapezoidal Rule
+### 1. Trapezoidal Rule
 $$\int_{a}^b f(x)dx=\frac{h}{2}(f(a)+f(b)+2\sum_{i=0}^{n-1}f(a + ih))$$
 Where:
 
