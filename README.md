@@ -1,7 +1,6 @@
 # Numerical Methods implemented in Python
 <div align="center">
 
-![numerical analysis](https://user-images.githubusercontent.com/29122581/177538989-e1e77473-0cd3-4eb8-8c19-8ff87230ac5a.png)
 ![GitHub stars](https://img.shields.io/github/stars/michaelehab/Numerical-Methods?style=plastic)
 ![GitHub forks](https://img.shields.io/github/forks/michaelehab/Numerical-Methods?style=plastic)
 ![GitHub repo size](https://img.shields.io/github/repo-size/michaelehab/Numerical-Methods?style=plastic)
@@ -13,7 +12,7 @@ Numerical analysis is the study of algorithms that use numerical approximation f
 
 # Subjects
 ## <a href="./interpolation.py">Interpolation</a>
-### Lagrange Interpolating Polynomial:
+### 1.Lagrange Interpolating Polynomial:
 #### Example : 
 <table align="center">
   <tr>
@@ -35,7 +34,7 @@ $$l_k(x)= \prod_{i=0,\, i\neq k}^{n} \frac{x-x_i}{x_k-x_i}=\frac{x-x_0}{x_k-x_0}
 
 $$l_2(1.4)=0.9854$$
 
-### Newton Divided Difference:
+### 2.Newton Divided Difference:
 #### Example : 
 <table align="center">
   <tr>
@@ -48,7 +47,7 @@ $$l_2(1.4)=0.9854$$
     <td>Y</td>
     <td>1</td>
     <td>5</td>
-    <td>14</td>
+    <td>17</td>
   </tr>
 </table>
 
@@ -70,6 +69,18 @@ P_2(x)&=&f[x_0]+f[x_0,x_1]x+f[x_0,x_1,x_2]x(x-2)\\
 \end{array}$$
 
 ## <a href="./differentiation.py">Differentiation</a>
+### 1.Forward Difference
+$$f^ \prime(x) = \frac{f(x + \Delta x) - f(x)}{\Delta x}$$
+
+$$f^{\prime \prime}(x) = \frac{f(x + 2\Delta x) - 2f(x + \Delta x) + f(x)}{(\Delta x)^2}$$
+
+### 2.Backward Difference
+$$f^ \prime(x) = \frac{f(x) - f(x - \Delta x)}{\Delta x}$$
+
+### 3.Centered Difference
+$$f^ \prime(x) = \frac{f(x + \Delta x) - f(x - \Delta x)}{2\Delta x}$$
+
+$$f^{\prime \prime}(x) = \frac{f(x + \Delta x) + f(x - \Delta x) - 2f(x)}{(\Delta x)^2}$$
 ## <a href="./integration.py">Integration</a>
 ## <a href="./regression.py">Regression</a>
 ## <a href="./ode.py">ODE</a>
