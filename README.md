@@ -143,4 +143,11 @@ $$k_2 = f(x_i + h, y_i + k_3 h)$$
 
 $$y_{i+1} = y_i + \frac{h}{6}(k_1 + 2k_2 + 2k_3 + k_4)$$
 ## <a href="./eigenvalues.py">Eigenvalues</a>
+### Normalized Power Method
+* Let $x_0$ be an initial approximation to the eigenvector.
+* For $k=1,2,3,\ldots$ do
+  * Compute $x_k=Ax_{k-1}$,
+  * Normalize $x_k=x_k/\|x_k\|_\infty$
+* Stop when tolerance is $t$
+  
 ## <a href="./nonlinear.py">Non-Linear Equations</a>
