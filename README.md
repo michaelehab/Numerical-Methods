@@ -69,9 +69,9 @@ P_2(x)&=&f[x_0]+f[x_0,x_1]x+f[x_0,x_1,x_2]x(x-2)\\
 &=&1+x^2
 \end{array}$$
 
-## Differentiation
-## Integration
-## Regression
-## ODE
-## Eigenvalues
-## Non-Linear Equations
+## <a href="./differentiation.py">Differentiation</a>
+## <a href="./integration.py">Integration</a>
+## <a href="./regression.py">Regression</a>
+## <a href="./ode.py">ODE</a>
+## <a href="./eigenvalues.py">Eigenvalues</a>
+## <a href="./nonlinear.py">Non-Linear Equations</a>
