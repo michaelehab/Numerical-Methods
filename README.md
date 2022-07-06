@@ -139,7 +139,7 @@ $$k_2 = f(x_i + \frac{h}{2}, y_i + \frac{k_1 h}{2})$$
 
 $$k_3 = f(x_i + \frac{h}{2}, y_i + \frac{k_2 h}{2})$$
 
-$$k_2 = f(x_i + h, y_i + k_3 h)$$
+$$k_4 = f(x_i + h, y_i + k_3 h)$$
 
 $$y_{i+1} = y_i + \frac{h}{6}(k_1 + 2k_2 + 2k_3 + k_4)$$
 ## <a href="./eigenvalues.py">Eigenvalues</a>
@@ -160,3 +160,20 @@ $$x^{(k)} = G(x^{(k -1)})$$
 
 ### 2. Gauss Seidel
 $$x^{(k)} = G(x^{(k)})$$
+
+### 3. Newton's Method
+$$-F(x^{(k - 1)}) = J(x^{(k - 1)})y^{(k - 1)}$$
+
+$$x^{(k)} = x^{(k - 1)} + y^{(k - 1)}$$
+
+where
+
+$$
+J =
+\begin{bmatrix}
+  \frac{\partial F_1}{\partial x_1} & \frac{\partial F_1}{\partial x_2} & \cdots & \frac{\partial F_1}{\partial x_n} \\
+  \frac{\partial F_2}{\partial x_1} & \frac{\partial F_2}{\partial x_2} & \cdots & \frac{\partial F_2}{\partial x_n} \\
+  \vdots & \vdots & \ddots & \vdots \\
+  \frac{\partial F_m}{\partial x_1} & \frac{\partial F_m}{\partial x_2} & \cdots & \frac{\partial F_m}{\partial x_n} \\
+\end{bmatrix}
+$$
