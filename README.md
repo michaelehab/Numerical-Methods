@@ -101,6 +101,20 @@ $$\int_{a}^b f(x)dx=\frac{b - a}{2}(f(\frac{b - a}{2} * \frac{1}{\sqrt{3}} + \fr
 $$\int_{a}^b f(x)dx=(b - a)f(\frac{b + a}{2})$$
 
 ## <a href="./regression.py">Regression</a>
+### Linear Regression ($y = a + bx$)
+
+$$\begin{bmatrix}
+\sum_{1}^{n} 1 & \sum_{1}^{n} x_i \\
+\sum_{1}^{n} x_i & \sum_{1}^{n} (x_i)^2
+\end{bmatrix}
+\begin{bmatrix}
+a \\
+b
+\end{bmatrix} =
+\begin{bmatrix}
+\sum_{1}^{n} y_i \\
+\sum_{1}^{n} x_i y_i
+\end{bmatrix}$$
 ## <a href="./ode.py">ODE</a>
 ## <a href="./eigenvalues.py">Eigenvalues</a>
 ## <a href="./nonlinear.py">Non-Linear Equations</a>
